@@ -2,6 +2,20 @@ import logo from './logo.svg';
 import './App.css';
 
 function App() {
+  let api = 'https://engrc3350-user-app.herokuapp.com/test/';
+  let output;
+
+  fetch(api)
+        .then(res => res.json())
+        .then(
+          (result) => {
+            output = result.result;
+          },
+          (error) => {
+            console.log(error);
+          }
+        );
+
   return (
     <div className="App">
       <header className="App-header">
@@ -16,6 +30,7 @@ function App() {
           rel="noopener noreferrer"
         >
           Learn React
+          {output}
         </a>
       </header>
     </div>
