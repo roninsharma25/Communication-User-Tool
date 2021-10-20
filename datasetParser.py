@@ -40,6 +40,6 @@ if __name__ == "__main__":
                 skills = detectSkills(phrase, skillFields)
                 allSkills += skills
 
-    dict_ = dict((val, allSkills.count(val)) for val in set(allSkills))
+    dict_ = dict((val, allSkills.count(val)) for val in set(allSkills) if val != "complicated!")
     sortedDict = sorted(dict_.items(), key = lambda x: x[1], reverse = True)
     print(sortedDict)
