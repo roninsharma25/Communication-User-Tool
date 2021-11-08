@@ -7,8 +7,8 @@ import {
   Routes
 } from 'react-router-dom';
 import SkillSearch from './components/SkillSearch';
+import ResumeAnalysis from './components/ResumeAnalysis';
 import About from './components/About';
-import Contact from './components/Contact';
 
 function App() {
   let api = 'https://engrc3350-user-app.herokuapp.com/test/';
@@ -37,9 +37,9 @@ function App() {
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
               <div class="navbar-nav">
-                <Link to="/" class="nav-link active" aria-current="page">To Home</Link>
-                <Link to="/about" class="nav-link active" aria-current="page">To About</Link>
-                <Link to="/contact" class="nav-link active" aria-current="page">To Contact</Link>
+                <Link to="/" class="nav-link active" aria-current="page">Home</Link>
+                <Link to="/resume_analysis" class="nav-link active" aria-current="page">Resume Analysis</Link>
+                <Link to="/about" class="nav-link active" aria-current="page">About Us</Link>
               </div>
             </div>
           </div>
@@ -47,8 +47,8 @@ function App() {
 
         <Routes>
           <Route exact path='/' element={<SkillSearch />}></Route>
+          <Route exact path='/resume_analysis' element={<ResumeAnalysis />}></Route>
           <Route exact path='/about' element={<About />}></Route>
-          <Route exact path='/contact' element={<Contact />}></Route>
         </Routes>
 
         {/* <p>{output}</p> */}

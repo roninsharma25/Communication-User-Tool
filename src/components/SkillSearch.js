@@ -33,8 +33,9 @@ export default class SkillSearch extends Component {
                 <h1 className="title">Search for jobs you're interested in!</h1>
                 <Select className="searchbar" options={options} isClearable={true} onChange={this.handleChange} />
                 <button type="button" class="btn btn-outline-primary" onClick={this.onClick}
-                    onAnimationEnd={() => this.setState({ fade: false })}
-                    className={fade ? 'fade' : ''}>Search</button>
+                // onAnimationEnd={() => this.setState({ fade: false })}
+                // className={fade ? 'fade' : ''}
+                >Search</button>
             </div>
         )
     }

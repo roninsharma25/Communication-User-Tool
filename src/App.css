@@ -28,11 +28,11 @@ button {
   margin-top: -5px;
 }
 
-.fade {
+/* .fade {
   animation: fade-in-keyframes 1s;
 }
 
 @keyframes fade-in-keyframes {
   from {opacity: 0}
   to {opacity: 1}
-}
+} */
