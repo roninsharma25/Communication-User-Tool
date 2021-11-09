@@ -7,25 +7,46 @@ h1 {
   text-align: center; 
 }
 
-.skill-search {
-  position: absolute;
+.skill-search-container {
+  /* position: absolute;
   width: 60%;
   left: 50%;
   top: 40%;
   transform: translate(-50%, -50%);
-  /* border: 5px solid #FFFF00; */
-  padding: 10px;
+  border: 5px solid #FFFF00;
+  padding: 10px; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* align-items: center; */
+}
+
+.skill-search {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
 
 .searchbar {
   display: inline-block;
-  width: 75%;
-  margin-left: 7%;
-  padding-right: 10px; 
+  width: 50%;
+  /* margin-left: 7%; */
+  /* padding-right: 10px;  */
+  /* flex-basis: 20px; */
+  /* display: flex; */
+  /* flex-direction: row; */
 }
 
 button {
   margin-top: -5px;
+  align-self: center;
+}
+
+.chart {
+  position: relative;
+  text-align: center;
+  top: 100px;
+  padding: 20px;
 }
 
 /* .fade {
