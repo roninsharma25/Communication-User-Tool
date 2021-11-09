@@ -28,7 +28,7 @@ def detectSkills(phrase, skillFields):
     return list(set(skills))
 
 if __name__ == "__main__":
-    keyword = sys.argv[1] if len(sys.argv) > 0 else "Computer Hardware Engineer"
+    keyword = sys.argv[1] if len(sys.argv) > 1 else "Computer Hardware Engineer"
     df = pd.read_csv("../data/" + jobAdDataset)
     df = df[df["Keyword"] == keyword]
     df2 = pd.read_csv("../data/" + commSkillsMapping)
