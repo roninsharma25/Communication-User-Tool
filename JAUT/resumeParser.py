@@ -12,7 +12,7 @@ from pdfminer.converter import TextConverter
 from pdfminer.layout import LAParams
 from pdfminer.pdfpage import PDFPage
 
-resume = "../data/ExampleResume.pdf"
+resume = "data/ExampleResume.pdf"
 
 def convert_pdf_to_txt(path):
     rsrcmgr = PDFResourceManager()
@@ -33,8 +33,6 @@ def convert_pdf_to_txt(path):
                                   check_extractable=True):
         interpreter.process_page(page)
 
-
-
     fp.close()
     device.close()
     text = retstr.getvalue()
@@ -47,11 +45,11 @@ def parseResume():
     communicationSkills = {"written", "verbal", "aural", "team"}
 
     parsedCommunicationSkills = resumeWords.intersection(communicationSkills)
-    print("Types of Communication Skills Found In Resume:", parsedCommunicationSkills)
+    #print("Types of Communication Skills Found In Resume:", parsedCommunicationSkills)
 
     dict_ = dict((val, allSkills.count(val)) for val in parsedCommunicationSkills)
     sortedDict = sorted(dict_.items(), key = lambda x: x[1], reverse = True)
-    print("# of Times Each Skill Is Mentioned in Resume:", sortedDict)
+    #print("# of Times Each Skill Is Mentioned in Resume:", sortedDict)
 
     return sortedDict
 

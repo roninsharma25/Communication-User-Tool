@@ -27,11 +27,11 @@ def detectSkills(phrase, skillFields):
 
     return list(set(skills))
 
-if __name__ == "__main__":
-    keyword = sys.argv[1] if len(sys.argv) > 1 else "Computer Hardware Engineer"
-    df = pd.read_csv("../data/" + jobAdDataset)
+def parseDataset(keyword):
+    #keyword = sys.argv[1] if len(sys.argv) > 1 else "Computer Hardware Engineer"
+    df = pd.read_csv("data/" + jobAdDataset)
     df = df[df["Keyword"] == keyword]
-    df2 = pd.read_csv("../data/" + commSkillsMapping)
+    df2 = pd.read_csv("data/" + commSkillsMapping)
     allSkills = []
 
     for des in df["Description"].to_numpy():
@@ -45,5 +45,10 @@ if __name__ == "__main__":
 
     dict_ = dict((val, allSkills.count(val)) for val in set(allSkills) if val != "complicated!")
     sortedDict = sorted(dict_.items(), key = lambda x: x[1], reverse = True)
-    print("Important Skills For", keyword+"s", "Are:", sortedDict)
+    #print("Important Skills For", keyword+"s", "Are:", sortedDict)
+
+    return sortedDict
+
+if __name__ == "__main__":
+    parseDataset()
     parseResume()
