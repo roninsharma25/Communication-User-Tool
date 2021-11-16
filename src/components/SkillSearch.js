@@ -28,7 +28,9 @@ export default class SkillSearch extends Component {
         super();
         this.state = {
             selectedOption: null,
-            chartExists: false
+            chartExists: false,
+            skills: [],
+            score: 0
             // fade: false
         }
         this.ref = React.createRef()
@@ -45,6 +47,21 @@ export default class SkillSearch extends Component {
         console.log(this.state.selectedOption);
         this.setState({ fade: true });
         this.drawChart();
+    }
+
+    getSkills( keyword ) {
+        fetch('/skills?keyword=' + keyword).then(res => res.json()).then(output => {
+            this.setState({skills: output});
+        })
+    }
+
+    getScore ( keyword , resume = null) {
+        let str = '/score?keyword=' + keyword ? resume : '/score?keyword=' + keyword + '&resume=' + resume;;
+  
+        fetch(str).then(res => res.json()).then(output => {
+            this.setState({score: output.score})
+            this.setState({skills: output.skills})
+        })
     }
 
     drawChart = () => {
