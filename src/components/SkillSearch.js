@@ -28,11 +28,13 @@ export default class SkillSearch extends Component {
         super();
         this.state = {
             selectedOption: null,
-            chartExists: false
+            chartExists: false,
             // fade: false
+            // data: { "skill1": 5, "skill2": 8 }
+
         }
         this.ref = React.createRef()
-        this.data = [100, 200, 300, 400, 500]
+        // this.data = [100, 200, 300, 400, 500]
     }
 
     handleChange = (selectedOption) => {
@@ -48,36 +50,87 @@ export default class SkillSearch extends Component {
     }
 
     drawChart = () => {
-        const size = 400
-        // const svg = d3.select('svg') ? d3.select(this.ref.current) : d3.select(this.ref.current).append('svg')
-        //     .class("graph")
-        //     .attr('width', size).attr('height', size);
+        // d3.json(this.state.data).then(data => {
+        //     const size = 400
+        //     // const svg = d3.select('svg') ? d3.select(this.ref.current) : d3.select(this.ref.current).append('svg')
+        //     //     .class("graph")
+        //     //     .attr('width', size).attr('height', size);
 
-        if (this.state.chartExists) {
-            console.log("exists");
-            var svg = d3.select(this.ref.current);
-        }
-        else {
-            console.log("does not exist");
-            var svg = d3.select(this.ref.current)
-                .append('svg')
-                .attr("class", "graph")
-                .attr('width', size)
-                .attr('height', size);
-        }
+        //     if (this.state.chartExists) {
+        //         console.log("exists");
+        //         var svg = d3.select(this.ref.current);
+        //     }
+        //     else {
+        //         console.log("does not exist");
+        //         var svg = d3.select(this.ref.current)
+        //             .append('svg')
+        //             .attr("class", "graph")
+        //             .attr('width', size)
+        //             .attr('height', size);
+        //     }
 
-        this.setState({ chartExists: true })
+        //     this.setState({ chartExists: true })
 
-        const rectWidth = 95
-        svg.selectAll('rect')
-            .data(this.data)
-            .enter()
-            .append('rect')
-            .attr('x', (d, i) => 5 + i * (rectWidth + 5))
-            .attr('y', (d) => size - d)
-            .attr('width', rectWidth)
-            .attr('height', (d) => d)
-            .attr('fill', 'tomato')
+        //     // const rectWidth = 95
+        //     // svg.selectAll('rect')
+        //     //     .data(this.data)
+        //     //     .enter()
+        //     //     .append('rect')
+        //     //     .attr('x', (d, i) => 5 + i * (rectWidth + 5))
+        //     //     .attr('y', (d) => size - d)
+        //     //     .attr('width', rectWidth)
+        //     //     .attr('height', (d) => d)
+        //     //     .attr('fill', 'tomato')
+
+        //     this.state.data.forEach(d => {
+        //         // d['points'] = Number(d['points']);
+        //         // d['price'] = Number(d['price'].replace(/,/g, "").replace(/\$/g, ""));
+        //         console.log(d);
+        //     });
+
+        //     // const width = svg.attr("width");
+        //     // const height = svg.attr("height");
+
+        //     // const margin = { top: 20, right: 10, bottom: 30, left: 35 };
+        //     // const chartWidth = width - margin.left - margin.right;
+        //     // const chartHeight = height - margin.top - margin.bottom;
+
+        //     // let chartArea = svg.append("g").attr("id", "chart")
+        //     //     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+        //     // const priceExtent = d3.extent(data, d => d['price']);
+        //     // const priceScale = d3.scaleLinear().domain(priceExtent).nice().range([0, chartWidth]);
+        //     // const pointsExtent = d3.extent(data, d => d['points']);
+        //     // const pointsScale = d3.scaleLinear().domain(pointsExtent).range([chartHeight, 0]);
+        //     // const stateScale = d3.scaleOrdinal(d3.schemeCategory10);
+
+        //     // let yAxis = d3.axisLeft(pointsScale);
+        //     // let yGridlines = d3.axisLeft(pointsScale).tickFormat("").tickSize(-chartWidth - 10);
+
+        //     // svg.append("g").attr("class", "y axis")
+        //     //     .attr("transform", "translate(" + (margin.left - 10) + "," + (margin.top) + ")")
+        //     //     .call(yAxis)
+
+        //     // svg.append("g").attr("class", "y gridlines")
+        //     //     .attr("transform", "translate(" + (margin.left - 10) + "," + (margin.top) + ")")
+        //     //     .call(yGridlines)
+
+        //     // let xAxis = d3.axisBottom(priceScale).tickFormat(d3.format("$"));
+        //     // let xGridlines = d3.axisBottom(priceScale).tickFormat("").tickSize(-chartHeight - 10);
+
+        //     // svg.append("g").attr("class", "x axis")
+        //     //     .attr("transform", "translate(" + (margin.left - 10) + "," + (margin.top + chartHeight + 10) + ")")
+        //     //     .call(xAxis)
+
+        //     // svg.append("g").attr("class", "x gridlines")
+        //     //     .attr("transform", "translate(" + (margin.left - 10) + "," + (margin.top + chartHeight + 10) + ")")
+        //     //     .call(xGridlines)
+
+        //     // d3.select(".axis").raise()
+        // });
+
+
+
     }
 
     render() {
