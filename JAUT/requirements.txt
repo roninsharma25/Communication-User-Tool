@@ -1,0 +1,3 @@
+pandas
+numpy
+pdfminer2
