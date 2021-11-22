@@ -40,7 +40,12 @@ export default class SkillSearch extends Component {
             bottomAxis: null,
             bottomAxisG: null,
             leftAxis: null,
-            leftAxisG: null
+            leftAxisG: null,
+
+            skills: [],
+            score: 0
+            // fade: false
+            // data: { "skill1": 5, "skill2": 8 }
 
         }
         this.ref = React.createRef()
@@ -57,6 +62,21 @@ export default class SkillSearch extends Component {
         d3.select('.skill-search_pic').style('display', 'none');
         d3.select('.graph').style('display', 'inline');
         this.drawChart();
+    }
+
+    getSkills(keyword) {
+        fetch('/skills?keyword=' + keyword).then(res => res.json()).then(output => {
+            this.setState({ skills: output });
+        })
+    }
+
+    getScore(keyword, resume = null) {
+        let str = '/score?keyword=' + keyword ? resume : '/score?keyword=' + keyword + '&resume=' + resume;;
+
+        fetch(str).then(res => res.json()).then(output => {
+            this.setState({ score: output.score })
+            this.setState({ skills: output.skills })
+        })
     }
 
     // ///////////////
