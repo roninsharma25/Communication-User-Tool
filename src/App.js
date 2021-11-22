@@ -29,17 +29,17 @@ function App() {
     <Router>
       <div className="App">
 
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <nav class="navbar navbar-expand-lg navbar-light bg-white">
           <div class="container-fluid">
-            <a class="navbar-brand" href="#">Navbar</a>
+            <h3 class="navbar-brand name" href="#">Communication Skills Tool</h3>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
               <div class="navbar-nav">
-                <Link to="/" class="nav-link active" aria-current="page">Home</Link>
-                <Link to="/resume_analysis" class="nav-link active" aria-current="page">Resume Analysis</Link>
-                <Link to="/about" class="nav-link active" aria-current="page">About Us</Link>
+                <Link to="/" class="nav-link" aria-current="page">Skill Search</Link>
+                <Link to="/resume_analysis" class="nav-link" aria-current="page">Resume Analysis</Link>
+                <Link to="/about" class="nav-link" aria-current="page">About Us</Link>
               </div>
             </div>
           </div>

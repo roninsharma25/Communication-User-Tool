@@ -1,10 +1,17 @@
-.App {
+body {
   /* text-align: center; */
+  background-color: #F3FEFF;
+  font-family: 'Poppins', sans-serif;
+  line-height: 24px;
+  text-align: center;
+  color: #027A8B;
 }
 
 h1 {
-  padding: 20px;
-  text-align: center; 
+  padding: 60px;
+  /* text-align: center;  */
+  font-size: 48px;
+  font-weight: 600;
 }
 
 .skill-search-container {
@@ -30,6 +37,7 @@ h1 {
 .searchbar {
   display: inline-block;
   width: 50%;
+  text-align: left;
   /* margin-left: 7%; */
   /* padding-right: 10px;  */
   /* flex-basis: 20px; */
@@ -38,22 +46,57 @@ h1 {
 }
 
 button {
-  margin-top: -5px;
-  align-self: center;
+  margin-left: 5px;
+  /* margin-top: -5px; */
+  /* align-self: center; */
+  box-shadow: none !important;
+  /* border-color: #027A8B !important;
+  color: #027A8B !important; */
 }
+
+/* button:hover {
+  border-color: #027A8B !important;
+  color: #027A8B !important;
+  background-color: rgba(0, 123, 139, 0.39) !important;
+} */
 
 .chart {
   position: relative;
   text-align: center;
-  top: 100px;
+  top: 30px;
   padding: 20px;
 }
 
-/* .fade {
-  animation: fade-in-keyframes 1s;
+.navbar {
+  border-bottom: 2px solid #85E1E3;
 }
 
-@keyframes fade-in-keyframes {
-  from {opacity: 0}
-  to {opacity: 1}
-} */
+/* .nav-link .active {
+  font-weight: bold;
+}  */
+
+.name {
+  margin-top: 7px;
+}
+
+.domain {
+  fill: none;
+  stroke: none;
+}
+
+.tick {
+  font-size: 18px;
+}
+
+.label {
+  font-family: IBM Plex Sans;
+  fill: #FFFFFF;
+  font-size: 12px;
+  font-weight: 1000;
+}
+
+.skill-search_pic {
+  width: 500px;
+  height: auto;
+  margin-top: 50px;
+}

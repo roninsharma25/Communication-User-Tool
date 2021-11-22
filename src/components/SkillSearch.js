@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Select from 'react-select';
 import * as d3 from 'd3';
+import skill_search_pic from '../skill_search_pic.png';
 
 const options = [
     { value: 'automation_engineer', label: 'Automation Engineer' },
@@ -29,12 +30,20 @@ export default class SkillSearch extends Component {
         this.state = {
             selectedOption: null,
             chartExists: false,
-            // fade: false
-            // data: { "skill1": 5, "skill2": 8 }
+
+            data: { "skill1": 5, "skill2": 8, "skill3": 4, "skill4": 1, "skill5": 9 },
+
+            svg: null,
+            chartWidth: null,
+            chartHeight: null,
+            chartArea: null,
+            bottomAxis: null,
+            bottomAxisG: null,
+            leftAxis: null,
+            leftAxisG: null
 
         }
         this.ref = React.createRef()
-        // this.data = [100, 200, 300, 400, 500]
     }
 
     handleChange = (selectedOption) => {
@@ -45,107 +54,139 @@ export default class SkillSearch extends Component {
 
     onClick = () => {
         console.log(this.state.selectedOption);
-        this.setState({ fade: true });
+        d3.select('.skill-search_pic').style('display', 'none');
+        d3.select('.graph').style('display', 'inline');
         this.drawChart();
     }
 
-    drawChart = () => {
-        // d3.json(this.state.data).then(data => {
-        //     const size = 400
-        //     // const svg = d3.select('svg') ? d3.select(this.ref.current) : d3.select(this.ref.current).append('svg')
-        //     //     .class("graph")
-        //     //     .attr('width', size).attr('height', size);
+    // ///////////////
+    getRandomInt = () => {
+        return Math.floor(Math.random() * 10);
+    }
 
-        //     if (this.state.chartExists) {
-        //         console.log("exists");
-        //         var svg = d3.select(this.ref.current);
-        //     }
-        //     else {
-        //         console.log("does not exist");
-        //         var svg = d3.select(this.ref.current)
-        //             .append('svg')
-        //             .attr("class", "graph")
-        //             .attr('width', size)
-        //             .attr('height', size);
-        //     }
+    onClick2 = () => {
+        this.setState({ data: { "skill5": this.getRandomInt(), "skill6": this.getRandomInt(), "skill7": this.getRandomInt(), "skill8": this.getRandomInt(), "skill9": this.getRandomInt() } })
+        console.log(this.state.data)
+        // var svg = d3.select(this.ref.current)
+        // svg.style('display', 'none');
+    }
+    // ///////////////
 
-        //     this.setState({ chartExists: true })
+    componentDidMount = () => {
 
-        //     // const rectWidth = 95
-        //     // svg.selectAll('rect')
-        //     //     .data(this.data)
-        //     //     .enter()
-        //     //     .append('rect')
-        //     //     .attr('x', (d, i) => 5 + i * (rectWidth + 5))
-        //     //     .attr('y', (d) => size - d)
-        //     //     .attr('width', rectWidth)
-        //     //     .attr('height', (d) => d)
-        //     //     .attr('fill', 'tomato')
+        this.state.svg = d3.select(this.ref.current)
+            .append('svg')
+            .attr("class", "graph")
+            .attr('width', 800)
+            .attr('height', 350)
+            .style('display', 'none');
 
-        //     this.state.data.forEach(d => {
-        //         // d['points'] = Number(d['points']);
-        //         // d['price'] = Number(d['price'].replace(/,/g, "").replace(/\$/g, ""));
-        //         console.log(d);
-        //     });
+        const width = this.state.svg.attr('width');
+        const height = this.state.svg.attr('height');
 
-        //     // const width = svg.attr("width");
-        //     // const height = svg.attr("height");
+        const margin = { top: 20, right: 10, bottom: 40, left: 100 };
+        this.setState({ chartWidth: width - margin.left - margin.right });
+        this.setState({ chartHeight: height - margin.top - margin.bottom });
 
-        //     // const margin = { top: 20, right: 10, bottom: 30, left: 35 };
-        //     // const chartWidth = width - margin.left - margin.right;
-        //     // const chartHeight = height - margin.top - margin.bottom;
+        const annotations = this.state.svg.append("g").attr("id", "annotations");
+        this.setState({
+            chartArea: this.state.svg.append("g").attr("id", "chart")
+                .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
+        });
 
-        //     // let chartArea = svg.append("g").attr("id", "chart")
-        //     //     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+        this.setState({ bottomAxis: d3.axisBottom() });
+        this.setState({
+            bottomAxisG: annotations.append("g")
+                .attr("class", "x axis")
+                .attr("transform", `translate(${margin.left},${300 + margin.top})`)
+        });
 
-        //     // const priceExtent = d3.extent(data, d => d['price']);
-        //     // const priceScale = d3.scaleLinear().domain(priceExtent).nice().range([0, chartWidth]);
-        //     // const pointsExtent = d3.extent(data, d => d['points']);
-        //     // const pointsScale = d3.scaleLinear().domain(pointsExtent).range([chartHeight, 0]);
-        //     // const stateScale = d3.scaleOrdinal(d3.schemeCategory10);
-
-        //     // let yAxis = d3.axisLeft(pointsScale);
-        //     // let yGridlines = d3.axisLeft(pointsScale).tickFormat("").tickSize(-chartWidth - 10);
-
-        //     // svg.append("g").attr("class", "y axis")
-        //     //     .attr("transform", "translate(" + (margin.left - 10) + "," + (margin.top) + ")")
-        //     //     .call(yAxis)
-
-        //     // svg.append("g").attr("class", "y gridlines")
-        //     //     .attr("transform", "translate(" + (margin.left - 10) + "," + (margin.top) + ")")
-        //     //     .call(yGridlines)
-
-        //     // let xAxis = d3.axisBottom(priceScale).tickFormat(d3.format("$"));
-        //     // let xGridlines = d3.axisBottom(priceScale).tickFormat("").tickSize(-chartHeight - 10);
-
-        //     // svg.append("g").attr("class", "x axis")
-        //     //     .attr("transform", "translate(" + (margin.left - 10) + "," + (margin.top + chartHeight + 10) + ")")
-        //     //     .call(xAxis)
-
-        //     // svg.append("g").attr("class", "x gridlines")
-        //     //     .attr("transform", "translate(" + (margin.left - 10) + "," + (margin.top + chartHeight + 10) + ")")
-        //     //     .call(xGridlines)
-
-        //     // d3.select(".axis").raise()
-        // });
-
-
+        this.setState({ leftAxis: d3.axisLeft() });
+        this.setState({
+            leftAxisG: annotations.append("g")
+                .attr("class", "y axis")
+                .attr("transform", `translate(${margin.left - 10},${margin.top})`)
+        });
 
     }
 
+    drawChart = () => {
+        var res = []
+        var i = 1.1
+        for (const [key, value] of Object.entries(this.state.data)) {
+            i = i - .15
+            res.push({
+                'skill': key,
+                'frequency': value,
+                'opacity': i
+            })
+        }
+
+        const skillExtent = d3.map(res, d => d.skill)
+
+        const frequencyExtent = [0, d3.max(res, d => d.frequency)]
+
+        const skillScale = d3.scaleBand().domain(skillExtent).range([0, this.state.chartHeight])
+            .padding(0.05);
+
+
+        this.state.leftAxis.scale(skillScale).tickSize(0);
+        this.state.leftAxisG.transition().call(this.state.leftAxis);
+
+        const frequencyScale = d3.scaleLinear().domain(frequencyExtent).range([0, this.state.chartWidth]);
+
+        this.state.chartArea.selectAll('rect.bar').data(res)
+            .join(enter => enter.append('rect')
+                .attr('class', 'bar')
+                .attr("fill", "#FFC85C")
+                .attr("x", d => 0)
+                .attr("y", d => skillScale(d.skill))
+                .attr("width", d => frequencyScale(d.frequency))
+                .attr("height", skillScale.bandwidth())
+                .attr("opacity", d => d.opacity),
+                update => update.call(update => update.transition()
+                    .attr("fill", "#FFC85C")
+                    .attr("x", d => 0)
+                    .attr("y", d => skillScale(d.skill))
+                    .attr("width", d => frequencyScale(d.frequency))
+                    .attr("height", skillScale.bandwidth()))
+                    .attr("opacity", d => d.opacity));
+
+        this.state.chartArea.selectAll('text.label').data(res)
+            .join(enter => enter.append('text')
+                .attr('class', 'label')
+                .attr("text-anchor", "end")
+                .attr("font-size", "15px")
+                .attr("x", d => frequencyScale(d.frequency) - 10)
+                .attr('y', d => skillScale(d.skill) + skillScale.bandwidth() / 2 + 5)
+                .text(d => {
+                    if (d.frequency === 0) { return ""; }
+                    else { return d.frequency; }
+                }),
+                update => update.call(update => update.transition()
+                    .attr('class', 'label')
+                    .attr("text-anchor", "end")
+                    .attr("font-size", "15px")
+                    .attr("x", d => frequencyScale(d.frequency) - 10)
+                    .attr('y', d => skillScale(d.skill) + skillScale.bandwidth() / 2 + 5)
+                    .text(d => {
+                        if (d.frequency === 0) { return ""; }
+                        else { return d.frequency; }
+                    })));
+    }
+
     render() {
-        // const fade = this.state.fade;
 
         return (
             <div className="skill-search-container" >
-                <h1 className="title">Search for jobs you're interested in!</h1>
+                <h1 className="title">Search for Jobs You're Interested In!</h1>
                 <div className="skill-search">
                     <Select className="searchbar" options={options} isClearable={true} onChange={this.handleChange} />
                     <button type="button" class="btn btn-outline-primary" onClick={this.onClick} disabled={!this.state.selectedOption}
-                    // onAnimationEnd={() => this.setState({ fade: false })}
-                    // className={fade ? 'fade' : ''}
                     >Search</button>
                 </div>
+                <button className="change1" onClick={this.onClick2}>change1</button>
+                <center><img src={skill_search_pic} className="skill-search_pic" alt="skill search picture" /></center>
                 <div className="chart" ref={this.ref} />
             </div>
         )
