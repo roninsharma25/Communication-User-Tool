@@ -8,6 +8,7 @@ import pandas as pd
 import numpy as np
 import sys
 from resumeParser import parseResume
+from jobAdParser import parseJobAd
 
 jobAdDataset = "merged_data_final.csv"
 commSkillsMapping = "coded_list_items.csv"
@@ -52,3 +53,4 @@ def parseDataset(keyword):
 if __name__ == "__main__":
     parseDataset()
     parseResume()
+    parseJobAd()

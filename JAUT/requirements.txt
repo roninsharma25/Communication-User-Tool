@@ -1,3 +1,4 @@
 pandas
 numpy
 pdfminer2
+pdfminer
