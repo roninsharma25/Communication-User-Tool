@@ -34,11 +34,11 @@ def detectSkills(phrase, skillFields):
 
     return list(set(skills))
 
-def parseDataset():
-    if len(sys.argv) > 1:
-        keyword = sys.argv[1]
-    else:
-        keyword = "Software Engineer"
+def parseDataset(keyword):
+    # if len(sys.argv) > 1:
+    #     keyword = sys.argv[1]
+    # else:
+    #     keyword = "Software Engineer"
     df = pd.read_csv("data/" + jobAdDataset)
     df = df[df["Keyword"] == keyword]
     df2 = pd.read_csv("data/" + commSkillsMapping)
