@@ -8,8 +8,8 @@ app = Flask(__name__)
 @app.route('/score') #/score?keyword=val&score=0
 def getScore():
     keyword = " ".join(request.args.get('keyword').split("_"))
-    scoreMetric = int(request.args.get('score'))
-
+    #scoreMetric = int(request.args.get('score'))
+    scoreMetric = 0
     score = main.calculateScore(keyword, scoreMetric)
 
     return f'Your score is: {score}'
