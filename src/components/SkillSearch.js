@@ -199,7 +199,7 @@ export default class SkillSearch extends Component {
 
         return (
             <div className="skill-search-container" >
-                <h1 className="title">Search for Jobs You're Interested In!</h1>
+                <h1 className="title">Select an engineering job you're interested in!</h1>
                 <div className="skill-search">
                     <Select className="searchbar" options={options} isClearable={true} onChange={this.handleChange} />
                     <button type="button" class="btn btn-outline-primary" onClick={this.onClick} disabled={!this.state.selectedOption}
