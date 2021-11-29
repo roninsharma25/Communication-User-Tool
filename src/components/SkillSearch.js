@@ -59,6 +59,7 @@ export default class SkillSearch extends Component {
 
     onClick = () => {
         console.log(this.state.selectedOption);
+        this.getSkills(this.state.selectedOption.value);
         d3.select('.skill-search_pic').style('display', 'none');
         d3.select('.graph').style('display', 'inline');
         this.drawChart();
@@ -66,7 +67,8 @@ export default class SkillSearch extends Component {
 
     getSkills(keyword) {
         fetch('/skills?keyword=' + keyword).then(res => res.json()).then(output => {
-            this.setState({ skills: output });
+            this.setState({ skills: output.output });
+            console.log("OUTPUT: ", output)
         })
     }
 
@@ -196,6 +198,7 @@ export default class SkillSearch extends Component {
     }
 
     render() {
+        console.log(this.state);
 
         return (
             <div className="skill-search-container" >
