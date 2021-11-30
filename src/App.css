@@ -296,3 +296,27 @@ textarea {
   background-color: white;
   border-color: #00c0c5;
 }
+
+.headshots {
+  border-radius: 50%;
+  width: 200px;
+  height: auto;
+  margin-top: 50px;
+  padding: 20px;
+}
+
+.team_members {
+  display: flex;
+  flex-direction: column;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+}
+
+.member {
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+}
