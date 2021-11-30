@@ -61,6 +61,6 @@ def parseDataset(keyword):
     return sortedDict
 
 if __name__ == "__main__":
-    parseDataset("Data Engineer")
+    parseDataset()
     parseResume()
     parseJobAd()
