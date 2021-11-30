@@ -1,35 +1,45 @@
-import React, { Component } from "react";
-import Select from "react-select";
+import React from "react";
 import upload from "../images/upload.png";
 
-export default class ResumeUpload extends Component {
-  constructor(props) {
-    super(props);
+const ResumeUpload = (props) => {
+  const hiddenFileInput = React.useRef(null);
 
-    this.state = {
-      selectedFile: null,
-    };
-  }
+  const handleClick = (event) => {
+    hiddenFileInput.current.click();
+  };
 
-  render() {
-    return (
-      <div className="resume-upload">
-        <p className="upload-resume-text">
-          <b>Step 1:</b> Upload Your Resume
-        </p>
-        <p className="resume-small-text">file in .pdf</p>
-        <input
-          type="file"
-          name="file"
-          onChange={(e) => this.props.setFile(e.target.files[0])}
-          value={this.state.selectedFile}
-          accept=".pdf"
-          // style={{display:'none'}}
-        />
-        <p>
+  const handleChange = (event) => {
+    const fileUploaded = event.target.files[0];
+    props.setFile(fileUploaded);
+  };
+
+  return (
+    <div >
+      <p className="upload-resume-text">
+        <b>Step 1:</b> Upload Your Resume
+      </p>
+      <p className="resume-small-text">file in .pdf</p>
+      <div
+        for="file-upload"
+        onClick={handleClick}
+        className="custom-file-upload"
+      >
+        <img src={upload} className="upload-image" />
+        <p className="browse-text">
           <b>Browse</b> to Upload
         </p>
       </div>
-    );
-  }
-}
+
+      <input
+        id="file-upload"
+        type="file"
+        name="file"
+        ref={hiddenFileInput}
+        onChange={handleChange}
+        accept=".pdf"
+      />
+    </div>
+  );
+};
+
+export default ResumeUpload;

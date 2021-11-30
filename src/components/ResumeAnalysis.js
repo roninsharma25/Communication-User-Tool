@@ -118,6 +118,10 @@ export default class ResumeAnalysis extends Component {
           this.setState({ titleChosen: false, descChosen: true });
         }
         console.log(this.state.selectedCompareOption);
+      } else {
+        this.setState({ titleChosen: false, descChosen: false }, () => {
+          console.log(this.state.selectedCompareOption);
+        });
       }
     });
   };
@@ -142,7 +146,15 @@ export default class ResumeAnalysis extends Component {
     return (
       <div>
         <h1 className="title">Evaluate and Improve Your Resume</h1>
-        <ResumeUpload setFile={this.setSelectedFile} />
+        <div className="resume-upload">
+          <ResumeUpload setFile={this.setSelectedFile} />
+          {this.state.fileChosen && (
+            <label className="file-uploaded-text">
+              File Successfully Uploaded
+            </label>
+          )}
+        </div>
+
         <div className="job-info">
           <h4 className="job-info-text">
             <b>Step 2: </b>Compare with{" "}
@@ -170,7 +182,12 @@ export default class ResumeAnalysis extends Component {
             {this.state.descChosen && (
               <div>
                 <br></br>
-                <textarea onChange={this.handleDescInput} />
+                <textarea
+                  placeHolder="Please enter job description here..."
+                  onChange={this.handleDescInput}
+                  cols="60"
+                  rows="7"
+                />
               </div>
             )}
           </div>
