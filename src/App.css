@@ -8,10 +8,19 @@ body {
 }
 
 h1 {
-  padding: 60px;
+  padding: 10px;
   /* text-align: center;  */
   font-size: 48px;
   font-weight: 600;
+}
+
+.header {
+  padding: 30px;
+
+}
+
+.sidenote {
+  font-size: 12px;
 }
 
 .skill-search-container {
@@ -63,8 +72,12 @@ button {
 .chart {
   position: relative;
   text-align: center;
-  top: 30px;
-  padding: 20px;
+  /* top: 30px; */
+  /* padding: 20px; */
+}
+
+.results {
+  margin-top: 35px;
 }
 
 .navbar {
@@ -90,7 +103,8 @@ button {
 
 .label {
   font-family: IBM Plex Sans;
-  fill: #FFFFFF;
+  /* fill: #FFFFFF; */
+  fill: #027A8B;
   font-size: 12px;
   font-weight: 1000;
 }
@@ -99,4 +113,62 @@ button {
   width: 500px;
   height: auto;
   margin-top: 50px;
+}
+
+.home_page_pic {
+  width: 500px;
+  height: auto;
+  /* margin-top: 50px; */
+}
+
+.home-buttons {
+  background-color: #00C0C5;
+  border-color: #00C0C5 !important;
+  /* padding: 10px;
+  padding-left: 30px;
+  padding-right: 30px; */
+  padding: 10px;
+  width: 175px;
+  margin: 25px;
+}
+
+.home-buttons:hover {
+  border-color: #027A8B !important;
+  background-color: #027A8B !important;
+}
+
+.home-buttons:focus {
+  border-color: #027A8B !important;
+  background-color: #027A8B !important;
+}
+
+.title-container {
+  padding: 50px;
+}
+
+.pic_and_buttons {
+  display: flex;
+  justify-content: center;
+  flex-basis: 5;
+  /* width: 175px; */
+}
+
+.feature-buttons {
+  display: flex;
+  flex-direction: column;
+}
+
+.next_steps {
+  display: flex;
+  /* justify-content: center;
+  width: 75%; */
+/* flex-basis: 25%; */
+/* flex: 0 0 50px; */
+}
+
+.recommendations {
+  /* display: flex; */
+  /* flex-basis: 50px;
+	flex-grow: 0;
+	flex-shrink: 0; */
 }
