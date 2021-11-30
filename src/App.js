@@ -10,6 +10,7 @@ import Home from './components/Home';
 import SkillSearch from './components/SkillSearch';
 import ResumeAnalysis from './components/ResumeAnalysis';
 import About from './components/About';
+import Analytics from './components/Analytics';
 
 function App() {
   let api = 'https://engrc3350-user-app.herokuapp.com/test/';
@@ -52,6 +53,7 @@ function App() {
           <Route exact path='/skill-search' element={<SkillSearch />}></Route>
           <Route exact path='/resume-analysis' element={<ResumeAnalysis />}></Route>
           <Route exact path='/about' element={<About />}></Route>
+          <Route exact path='/analytics' element={<Analytics />}></Route>
         </Routes>
 
         {/* <p>{output}</p> */}
