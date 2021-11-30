@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import ReadinessScore from "./ReadinessScore";
 import { Link } from "react-router-dom";
 import * as d3 from "d3";
+import back_arrow from "../images/back-arrow.png";
 
 export default class Analytics extends Component {
   constructor(props) {
@@ -30,7 +31,7 @@ export default class Analytics extends Component {
   }
 
   getRandomInt = () => {
-    return Math.floor(Math.random() * 10);
+    return Math.floor(Math.random() * 10) + 1;
   };
 
   onClick = () => {
@@ -40,6 +41,12 @@ export default class Analytics extends Component {
           skill1: [this.getRandomInt(), this.getRandomInt()],
           skill2: [this.getRandomInt(), this.getRandomInt()],
           skill3: [this.getRandomInt(), this.getRandomInt()],
+          skill3: [this.getRandomInt(), this.getRandomInt()],
+          skill4: [this.getRandomInt(), this.getRandomInt()],
+          skill5: [this.getRandomInt(), this.getRandomInt()],
+          skill6: [this.getRandomInt(), this.getRandomInt()],
+          skill7: [this.getRandomInt(), this.getRandomInt()],
+          skill8: [this.getRandomInt(), this.getRandomInt()],
         },
       },
       () => {
@@ -62,7 +69,7 @@ export default class Analytics extends Component {
     const width = this.state.svg.attr("width");
     const height = this.state.svg.attr("height");
 
-    const margin = { top: 20, right: 100, bottom: 40, left: 100 };
+    const margin = { top: 20, right: 70, bottom: 40, left: 100 };
     this.setState({ chartWidth: width - margin.left - margin.right });
     this.setState({ chartHeight: height - margin.top - margin.bottom });
 
@@ -93,10 +100,10 @@ export default class Analytics extends Component {
 
   drawChart = () => {
     var res = [];
-    var i = 1.1;
+    var i = 1.0;
     const col = ["#018588", "#FFC85C"];
     for (const [key, v] of Object.entries(this.state.data)) {
-      i = i - 0.15;
+      i = i - 0.1;
       for (var j = 0; j < v.length; j++) {
         res.push({
           skill: key,
@@ -177,20 +184,32 @@ export default class Analytics extends Component {
   };
 
   handleBack = () => {
-    window.location.href = "/resume_analysis";
+    window.location.href = "/resume-analysis";
   };
 
   render() {
     return (
       <div className="analytics-page">
-        <ReadinessScore />
-        <br></br>
-        <h4>Most Important Communication Skills: </h4>
-        <button onClick={this.onClick}> Test </button>
-        <div className="chart" ref={this.ref} />
-        <Link to="/resume_analysis" onClick={this.handleBack}>
-          Back
-        </Link>
+        <ReadinessScore score="25" className="readiness-score-analytics" />
+        <div className="communication-skills-chart-container">
+          <h4 className="important-communication-title">
+            Most Important Communication Skills:{" "}
+          </h4>
+          <button onClick={this.onClick}> Test </button>
+          <div style={{ alignItems: "left" }}>
+            <div className="chart" ref={this.ref} />
+          </div>
+        </div>
+        <div className="back-button">
+          <Link
+            to="/resume_analysis"
+            onClick={this.handleBack}
+            className="back-button-text"
+          >
+            <img src={back_arrow} className="back-arrow-image" />
+            Back
+          </Link>
+        </div>
       </div>
     );
   }

@@ -16,7 +16,6 @@ h1 {
 
 .header {
   padding: 30px;
-
 }
 
 .sidenote {
@@ -104,7 +103,7 @@ button {
 .label {
   font-family: IBM Plex Sans;
   /* fill: #FFFFFF; */
-  fill: #027A8B;
+  fill: #027a8b;
   font-size: 12px;
   font-weight: 1000;
 }
@@ -122,8 +121,8 @@ button {
 }
 
 .home-buttons {
-  background-color: #00C0C5;
-  border-color: #00C0C5 !important;
+  background-color: #00c0c5;
+  border-color: #00c0c5 !important;
   /* padding: 10px;
   padding-left: 30px;
   padding-right: 30px; */
@@ -133,13 +132,13 @@ button {
 }
 
 .home-buttons:hover {
-  border-color: #027A8B !important;
-  background-color: #027A8B !important;
+  border-color: #027a8b !important;
+  background-color: #027a8b !important;
 }
 
 .home-buttons:focus {
-  border-color: #027A8B !important;
-  background-color: #027A8B !important;
+  border-color: #027a8b !important;
+  background-color: #027a8b !important;
 }
 
 .title-container {
@@ -162,8 +161,8 @@ button {
   display: flex;
   /* justify-content: center;
   width: 75%; */
-/* flex-basis: 25%; */
-/* flex: 0 0 50px; */
+  /* flex-basis: 25%; */
+  /* flex: 0 0 50px; */
 }
 
 .recommendations {
@@ -319,4 +318,104 @@ textarea {
   display: inline-block;
   overflow: hidden;
   white-space: nowrap;
+}
+
+/* ================ Analytics Page ===================== */
+.readiness-score-analytics {
+  float: left;
+  width: 45%;
+}
+
+.communication-skills-chart-container {
+  float: right;
+  width: 55%;
+}
+
+.readiness-score-title,
+.important-communication-title {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.back-button {
+  position: relative;
+  margin-top: 17%;
+  margin-right: 80%;
+  text-decoration: none;
+  display: inline-block;
+  align-items: center;
+}
+
+.back-button-text {
+  text-decoration: none;
+  color: #083038;
+}
+
+.back-arrow-image {
+  width: 25px;
+  height: auto;
+  padding-right: 5px;
+}
+
+.back-button-text:hover {
+  color: #083038;
+}
+
+/* ============== Readiness Score ==================== */
+.score-and-list-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0px;
+  padding: 0px;
+  border: 1px solid black;
+  border-radius: 5px;
+}
+
+ul li {
+  margin: 0;
+  color: white;
+  padding: 10px 20px 10px 20px;
+  border: 1px solid black;
+}
+
+ul li label {
+  margin: 0;
+}
+
+ul li:hover {
+  color: black;
+  border-color: yellow;
+}
+
+.poor {
+  background-color: red;
+}
+
+.fair {
+  background-color: orange;
+}
+
+.good {
+  background-color: rgb(122, 122, 32);
+}
+
+.very-good {
+  background-color: rgb(110, 177, 10);
+}
+
+.excellent {
+  background-color: blue;
+}
+
+.score-display {
+  display: block;
+  border: 2px solid black;
+  border-radius: 5px;
+  color: black;
+  padding: 10px 10px 10px 10px;
 }
