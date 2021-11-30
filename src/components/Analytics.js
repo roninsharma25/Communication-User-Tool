@@ -11,7 +11,7 @@ export default class Analytics extends Component {
   }
 
   handleBack = () => {
-    window.location.href = "/resume_analysis";
+    window.location.href = "/resume-analysis";
   };
 
   render() {
@@ -21,7 +21,7 @@ export default class Analytics extends Component {
         <br></br>
         <h4>Most Important Communication Skills: </h4>
         <Link
-          to="/resume_analysis"
+          to="/resume-analysis"
           onClick={this.handleBack}
         >
           Back
