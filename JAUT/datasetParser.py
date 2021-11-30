@@ -14,7 +14,8 @@ jobAdDataset = "merged_data_final.csv"
 commSkillsMapping = "coded_list_items.csv"
 
 def detectSkills(phrase, skillFields):
-    skills = [i for i in skillFields if isinstance(i, str)]
+    # skills = [i for i in skillFields if isinstance(i, str)]
+    skills = []
 
     # ADD MORE CASES IF NEEDED
     if 'team' in phrase or 'teamwork' in phrase or 'teams' in phrase or 'group' in phrase or 'groups' in phrase or 'groupwork' in phrase or 'conflict management' in phrase or 'managing conflict' in phrase or 'feedback' in phrase:
@@ -60,6 +61,6 @@ def parseDataset(keyword):
     return sortedDict
 
 if __name__ == "__main__":
-    parseDataset()
+    parseDataset("Data Engineer")
     parseResume()
     parseJobAd()
