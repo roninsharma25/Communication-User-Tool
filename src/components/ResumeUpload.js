@@ -24,7 +24,7 @@ export default class ResumeUpload extends Component {
           onChange={(e) => this.props.setFile(e.target.files[0])}
           value={this.state.selectedFile}
           accept=".pdf"
-          style={{display:'none'}}
+          // style={{display:'none'}}
         />
         <p>
           <b>Browse</b> to Upload

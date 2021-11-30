@@ -100,3 +100,87 @@ button {
   height: auto;
   margin-top: 50px;
 }
+
+
+
+/* ==============  Resume Analysis ============== */
+
+.resume-upload {
+  float: left;
+  /* margin-right: auto;
+  margin-left: 12.4%; */
+  width: 50%;
+}
+
+.job-info {
+  float: right;
+  /* margin-left: auto;
+  margin-right: 12.4%; */
+  width: 50%;
+}
+
+.job-info-text,
+.upload-resume-text,
+.resume-small-text {
+  color: #083038;
+  font-weight: lighter;
+  /* display: inline; */
+}
+
+.job-info-text,
+.upload-resume-text {
+  font-size: 24px;
+  line-height: 36px;
+  display: inline;
+}
+
+.resume-small-text {
+  font-size: 14px;
+  line-height: 21px;
+  /* font-weight: normal; */
+}
+
+.job-info-searchbar {
+  display: inline-flex;
+  text-align: left;
+  box-shadow: 3px 3px 5px rgba(8, 48, 56, 0.2);
+  color: #083038;
+  margin-top: 3px;
+  /* margin-left: 7%; */
+  /* padding-right: 10px;  */
+  /* flex-basis: 20px; */
+  /* display: flex; */
+  /* flex-direction: row; */
+}
+
+.job-info-title-searchbar {
+  display: inline-block;
+  width: 50%;
+  text-align: left;
+}
+
+/* ===== Start Button ======= */
+
+.start-button {
+  background-color: #00c0c5;
+  border-radius: 10px;
+  height: 60px;
+  width: 220px;
+  line-height: 58px;
+  text-align: center;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 25%;
+  color: white;
+  font: 600 28px;
+  text-decoration: none;
+  border: 1px solid;
+  border-color: white;
+}
+
+.start-button:hover {
+  color: #00c0c5;
+  background-color: white;
+  border-color: #00c0c5;
+}
