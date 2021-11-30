@@ -51,6 +51,7 @@ export default class ResumeAnalysis extends Component {
   }
 
   handleSubmission = (e) => {
+    console.log("HANDLING SUBMISSION");
     e.preventDefault();
     if (!this.state.titleChosen && !this.state.descChosen) {
       alert(
@@ -61,7 +62,28 @@ export default class ResumeAnalysis extends Component {
       if (this.state.selectedTitle !== null) {
         if (this.state.fileChosen) {
           console.log("Title: " + this.state.selectedTitle.label);
-          window.location.href = "/analytics";
+
+          // Get file object working
+          console.log(typeof(this.state.selectedFile));
+          console.log(this.state.selectedFile);
+
+          let selectedJobTitle = '';
+          let label = this.state.selectedTitle.label;
+          jobTitleOptions.forEach( jobTitle => {
+            if (jobTitle.label == label) selectedJobTitle = jobTitle.value;
+          })
+          let resumeStem = this.state.selectedFile.name.split(".")[0];
+          console.log(resumeStem);
+          console.log(typeof(resumeStem));
+          let str = '/resume_analysis?keyword=' + selectedJobTitle + '&resume=' + resumeStem;
+          console.log("STR: ", str);
+
+          fetch(str).then(res => res.json()).then(output => {
+              console.log("RESUME OUTPUT:", output)
+          })
+
+
+          //window.location.href = "/analytics";
         } else {
           alert("Please upload a file");
         }
@@ -72,7 +94,7 @@ export default class ResumeAnalysis extends Component {
       if (this.state.description !== null && this.state.description !== "") {
         if (this.state.fileChosen) {
           console.log("Description: " + this.state.description);
-          window.location.href = "/analytics";
+          //window.location.href = "/analytics";
         } else {
           alert("Please upload a file");
         }

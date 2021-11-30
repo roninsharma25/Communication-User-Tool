@@ -38,5 +38,27 @@ def getSkills():
 
     return {"output": outputDict}
 
+@app.route('/resume_analysis') # /resume_analysis?keyword=test&resume=file
+def resumeAnalysis():
+    print('IN RESUME ANALYSIS')
+    keywordInput = request.args.get('keyword').split("_")
+    print(keywordInput)
+    keyword = ""
+    for word in keywordInput:
+        keyword += word[0].upper() + word[1:] + " "
+    
+    # Remove extra space
+    keyword = keyword[:-1]
+
+    resumeFile = request.args.get('resume') + '.pdf'
+    print(resumeFile)
+
+    output = main.calculateScore(keyword, 0, resumeFile)
+    print(output)
+
+    print("BACKEND")
+
+    return {"output": output}
+
 if __name__ == '__main__':
     app.run(host = 'localhost', port = '8080')

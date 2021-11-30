@@ -64,8 +64,8 @@ def checkSkillGroups(word):
     elif word in planning:
         return "planning"
 
-def parseResume():
-    allSkills = list(map(lambda word: word.lower() if len(word) > 2 else None, convert_pdf_to_txt(resume).split()))
+def parseResume(resumeFile):
+    allSkills = list(map(lambda word: word.lower() if len(word) > 2 else None, convert_pdf_to_txt('data/' + resumeFile).split()))
     resumeWords = set(allSkills)
     skillsSet = {'team', 'teamwork', 'teams', 'group', 'groups', 'groupwork', 'conflict management', 'managing conflict', 'feedback',
     'empathy', 'listening', 'listen', 'active listening', 'listening actively', 'empathetic listening', "point of view", 'understanding others',

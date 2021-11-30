@@ -103,15 +103,6 @@ export default class SkillSearch extends Component {
         })
     }
 
-    getScore(keyword, resume = null) {
-        let str = '/score?keyword=' + keyword ? resume : '/score?keyword=' + keyword + '&resume=' + resume;;
-
-        fetch(str).then(res => res.json()).then(output => {
-            this.setState({ score: output.score })
-            this.setState({ skills: output.skills })
-        })
-    }
-
     // ///////////////
     // getRandomInt = () => {
     //     return Math.floor(Math.random() * 10);
