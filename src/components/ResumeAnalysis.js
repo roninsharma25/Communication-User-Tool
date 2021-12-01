@@ -97,7 +97,15 @@ export default class ResumeAnalysis extends Component {
       if (this.state.description !== null && this.state.description !== "") {
         if (this.state.fileChosen) {
           console.log("Description: " + this.state.description);
-          window.location.href = "/analytics";
+          let str = `/job_ad?content=${this.state.description}`;
+          console.log("STR: ", str);
+          
+          fetch(str)
+            .then((res) => res.json())
+            .then((output) => {
+              console.log("JOB AD OUTPUT:", output);
+            });
+          //window.location.href = "/analytics";
         } else {
           alert("Please upload a file");
         }

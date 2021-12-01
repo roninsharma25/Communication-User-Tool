@@ -2,6 +2,7 @@ from flask import *
 import main
 import datasetParser
 import resumeParser
+import jobAdParser
 
 app = Flask(__name__)
 
@@ -58,6 +59,13 @@ def resumeAnalysis():
 
     print("BACKEND")
 
+    return {"output": output}
+
+@app.route('/job_ad') # /job_ad?file=txtfilecontent
+def jobAdAnalysis():
+    content = request.args.get('content')
+    output = jobAdParser.parseJobAd(content)
+    print(output)
     return {"output": output}
 
 if __name__ == '__main__':

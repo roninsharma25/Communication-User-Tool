@@ -5,7 +5,6 @@ import io
 
 def convert_txt_to_text(path):
     content = open(path).read().split()
-    # print(content)
     return content
 
 def checkSkillGroups(word):
@@ -33,8 +32,8 @@ def checkSkillGroups(word):
     elif word in planning:
         return "planning"
 
-def parseJobAd():
-    allSkills = list(map(lambda word: word.lower() if len(word) > 2 else None, convert_txt_to_text("data/exampleJobAd.txt")))
+def parseJobAd(file = "data/exampleJobAd.txt"):
+    allSkills = list(map(lambda word: word.lower() if len(word) > 2 else None, convert_txt_to_text(file)))
     jobAdWords = set(allSkills)
     skillsSet = {'team', 'teamwork', 'teams', 'group', 'groups', 'groupwork', 'conflict management', 'managing conflict', 'feedback',
     'empathy', 'listening', 'listen', 'active listening', 'listening actively', 'empathetic listening', "point of view", 'understanding others',
