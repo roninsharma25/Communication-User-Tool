@@ -61,7 +61,7 @@ def resumeAnalysis():
 
     return {"output": output}
 
-@app.route('/job_ad') # /job_ad?file=txtfilecontent
+@app.route('/job_ad') # /job_ad?content=txtfilecontent
 def jobAdAnalysis():
     content = request.args.get('content')
     output = jobAdParser.parseJobAd(content)
