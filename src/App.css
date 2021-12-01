@@ -339,8 +339,8 @@ textarea {
 
 .back-button {
   position: relative;
-  margin-top: 17%;
-  margin-right: 80%;
+  margin-top: 30%;
+  margin-right: 60%;
   text-decoration: none;
   display: inline-block;
   align-items: center;
@@ -374,12 +374,13 @@ ul {
   padding: 0px;
   border: 1px solid black;
   border-radius: 5px;
+  box-shadow: 3px 3px 5px rgba(8, 48, 56, 0.2);
 }
 
 ul li {
   margin: 0;
   color: white;
-  padding: 10px 20px 10px 20px;
+  padding: 20px 40px 20px 40px;
   border: 1px solid black;
 }
 
@@ -418,4 +419,5 @@ ul li:hover {
   border-radius: 5px;
   color: black;
   padding: 10px 10px 10px 10px;
+  box-shadow: 3px 3px 5px rgba(8, 48, 56, 0.2);
 }

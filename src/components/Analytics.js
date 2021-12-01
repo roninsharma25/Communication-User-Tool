@@ -190,7 +190,11 @@ export default class Analytics extends Component {
   render() {
     return (
       <div className="analytics-page">
-        <ReadinessScore score="25" className="readiness-score-analytics" />
+        <ReadinessScore
+          handleBack={this.handleBack}
+          score="25"
+          className="readiness-score-analytics"
+        />
         <div className="communication-skills-chart-container">
           <h4 className="important-communication-title">
             Most Important Communication Skills:{" "}
@@ -199,16 +203,6 @@ export default class Analytics extends Component {
           <div style={{ alignItems: "left" }}>
             <div className="chart" ref={this.ref} />
           </div>
-        </div>
-        <div className="back-button">
-          <Link
-            to="/resume_analysis"
-            onClick={this.handleBack}
-            className="back-button-text"
-          >
-            <img src={back_arrow} className="back-arrow-image" />
-            Back
-          </Link>
         </div>
       </div>
     );

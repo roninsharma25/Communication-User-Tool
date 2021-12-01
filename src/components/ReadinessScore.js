@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import back_arrow from "../images/back-arrow.png";
+import { Link } from "react-router-dom";
 
 export class ReadinessScore extends Component {
   constructor(props) {
@@ -53,6 +55,16 @@ export class ReadinessScore extends Component {
           >
             {this.state.score}
           </h4>
+        </div>
+        <div className="back-button">
+          <Link
+            to="/resume_analysis"
+            onClick={this.props.handleBack}
+            className="back-button-text"
+          >
+            <img src={back_arrow} className="back-arrow-image" />
+            Back
+          </Link>
         </div>
       </div>
     );
