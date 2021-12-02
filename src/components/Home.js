@@ -89,7 +89,7 @@ function Home() {
             <div className="background">
                 <h3>Background</h3>
                 <div className="home_text">
-                    <p>According to many engineering executives, communication skills play a critical role in both the hiring process for applicants, as well as the success and advancement of an engineer in their professional career.</p>
+                    <p>Engineering students face a lack of technical communication skills in line with job requirements, reflected by both students in the recruitment process and alumni in the workforce [<a href="https://onlinelibrary.wiley.com/doi/10.1002/j.2168-9830.2001.tb00660.x">1</a>, <a href="https://ieeexplore.ieee.org/document/6087194/">2</a>]. They want to gain a better understanding of their skill mismatches in order to avoid negative impacts on job performance [<a href="https://www.emerald.com/insight/content/doi/10.1108/IJM-05-2013-0116/full/html">3</a>].</p>
                     <p>This tool consists of two main functionalities on career type skills search and resume analysis. </p>
                     <p>Communication and collaboration skills data used for this project was scraped from 5,994 engineering job ads by an undergraduate engineering research team at Cornell University. Report for the previous research project can be found <a href="https://drive.google.com/file/d/13VSAlBt_k6wYfMksJTGsGDa3mego7EUE/view">here</a>.</p>
                 </div>
