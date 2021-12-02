@@ -380,6 +380,7 @@ textarea {
 
 .about_header {
   padding: 50px;
+  padding-bottom: 30px;
 }
 
 .home_text {
@@ -405,6 +406,15 @@ textarea {
   /* display: inline-block;
   overflow: hidden;
   white-space: nowrap; */
+}
+
+.position {
+  font-size: 12px;
+  font-family: 'PoppinsLight', sans-serif;
+  color: #083038;
+  line-height: 16px;
+  margin-bottom: 10px;
+  /* margin-top: 10px; */
 }
 
 /* ================ Analytics Page ===================== */
@@ -522,4 +532,27 @@ textarea {
   margin-bottom: 0px; */
   padding-top: 0px;
   padding-bottom: 0px;
+}
+
+.resume_description {
+  padding-left: 50px;
+  padding-right: 50px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.conc {
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+
+.resume_next {
+  position: absolute;
+  margin-top: 450px;
+  /* margin-left: 200px; */
+  padding: 100px;
+}
+
+.last {
+  margin-bottom: 50px;
 }

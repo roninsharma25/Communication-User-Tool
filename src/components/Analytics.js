@@ -208,6 +208,10 @@ export default class Analytics extends Component {
             <div className="chart" ref={this.ref} />
           </div>
         </div>
+        <div className="resume_next">
+          <h3>Next Steps</h3>
+          <p>Compare and contrast the communication skills of your resume (in yellow) and the job you entered (in green). Make some changes, try putting in your new resume, and see if your Readiness Score rises! Based on these results, you can revise your resume to better demonstrate the preferred communication skills for this job! Head over to our ‘About Us’ page to wrap up your skills analysis and meet our team.</p>
+        </div>
       </div>
     );
   }

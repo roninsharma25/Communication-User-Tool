@@ -21,6 +21,7 @@ export default function Member(props) {
         <div className="member">
             <img src={props.pic} alt={name} className="headshots" />
             <p className="name">{props.name}</p>
+            <p className="position">{props.title}</p>
             <p className="info">{props.info}</p>
             <p className="bio">{props.bio}</p>
         </div>

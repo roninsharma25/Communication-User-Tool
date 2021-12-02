@@ -303,7 +303,8 @@ export default class AnalyticsResumeAnalysisContainer extends Component {
       <div>
         {!this.state.analyticsPage && (
           <div>
-            <h1 className="title">Evaluate and Improve Your Resume</h1>
+            <h1 className="title">Evaluate and improve your resume</h1>
+            <p className="resume_description">The Resume Analysis page allows you to compare the communication skills in your resume with the communication skills commonly sought after in different careers. Either compare your resume with one of our positions by choosing to compare with a ‘Job Title’ or compare your resume with a job description of your choice by choosing to compare with ‘Job Description’ and copying and pasting a job ad you’re interested in.</p>
             <div className="resume-upload">
               <div>
                 <p className="upload-resume-text">
