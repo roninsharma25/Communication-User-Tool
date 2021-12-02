@@ -14,9 +14,10 @@ jobAdDataset = "merged_data_final.csv"
 commSkillsMapping = "coded_list_items.csv"
 
 def detectSkills(phrase, skillFields):
-    skills = [i for i in skillFields if isinstance(i, str)]
+    #skills = [i for i in skillFields if isinstance(i, str)]
+    skills = []
 
-    # ADD MORE CASES IF NEEDED
+    # Communication Skills
     if 'team' in phrase or 'teamwork' in phrase or 'teams' in phrase or 'group' in phrase or 'groups' in phrase or 'groupwork' in phrase or 'conflict management' in phrase or 'managing conflict' in phrase or 'feedback' in phrase:
 	       skills +=['teams']
     if 'empathy' in phrase or 'listening' in phrase or 'active listening' in phrase or 'listening actively' in phrase or 'empathetic listening' in phrase or "point of view" in phrase or 'understanding others' in phrase:
@@ -31,6 +32,8 @@ def detectSkills(phrase, skillFields):
 	       skills+=['negotiation']
     if 'planning' in phrase or 'structuring' in phrase or 'structure' in phrase or 'organizing' in phrase or 'organize' in phrase or 'arrange' in phrase or 'arranging' in phrase:
 	       skills+=['planning']
+    if 'visual communication' in phrase:
+            skills+=['visual communication']
 
     return list(set(skills))
 

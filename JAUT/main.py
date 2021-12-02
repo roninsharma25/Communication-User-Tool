@@ -5,9 +5,9 @@ This module contains all functions invoked by the backend API.
 import datasetParser
 import resumeParser
 
-def calculateScore(keyword, scoreMetric, factor = 0.25):
+def calculateScore(keyword, scoreMetric, resumeFile, factor = 0.25):
     datasetResults = datasetParser.parseDataset(keyword)
-    resumeResults = resumeParser.parseResume()
+    resumeResults = resumeParser.parseResume(resumeFile)
 
     neededSkills = [val[0] for val in datasetResults]
     totalNeededSkills = len(neededSkills)
@@ -27,7 +27,7 @@ def calculateScore(keyword, scoreMetric, factor = 0.25):
                 count -= factor
         count = max(count, 0)
     
-    return count / totalNeededSkills * 100
+    return count / totalNeededSkills * 100 if totalNeededSkills != 0 else 0
     
 
 if __name__ == "__main__":
