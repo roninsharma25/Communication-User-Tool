@@ -56,6 +56,9 @@ export default class AnalyticsResumeAnalysisContainer extends Component {
       isExploding: true,
       score: 0,
       getColor: true,
+      skills_title: null,
+      skills_desc: null,
+      skills_resume: null
     };
 
     this.handleSearchChange = this.handleSearchChange.bind(this);
@@ -65,6 +68,9 @@ export default class AnalyticsResumeAnalysisContainer extends Component {
     this.handleResumeInput = this.handleResumeInput.bind(this);
     this.handleBack = this.handleBack.bind(this);
     this.goToAnalyticsPage = this.goToAnalyticsPage.bind(this);
+    this.getScore = this.getScore.bind(this);
+
+
   }
 
   getRandomInt = () => {
@@ -75,23 +81,25 @@ export default class AnalyticsResumeAnalysisContainer extends Component {
     this.setState({ analyticsPage: true }, () => {
       this.setState(
         {
-          data: {
-            skill1: [this.getRandomInt(), this.getRandomInt()],
-            skill2: [this.getRandomInt(), this.getRandomInt()],
-            skill3: [this.getRandomInt(), this.getRandomInt()],
-            skill3: [this.getRandomInt(), this.getRandomInt()],
-            skill4: [this.getRandomInt(), this.getRandomInt()],
-            skill5: [this.getRandomInt(), this.getRandomInt()],
-            skill6: [this.getRandomInt(), this.getRandomInt()],
-            skill7: [this.getRandomInt(), this.getRandomInt()],
-            skill8: [this.getRandomInt(), this.getRandomInt()],
-          },
+          data: [
+            { skill1: [this.getRandomInt(), this.getRandomInt()] },
+            { skill2: [this.getRandomInt(), this.getRandomInt()] },
+            { skill3: [this.getRandomInt(), this.getRandomInt()] },
+            { skill3: [this.getRandomInt(), this.getRandomInt()] },
+            { skill4: [this.getRandomInt(), this.getRandomInt()] },
+            { skill5: [this.getRandomInt(), this.getRandomInt()] },
+            { skill6: [this.getRandomInt(), this.getRandomInt()] },
+            { skill7: [this.getRandomInt(), this.getRandomInt()] },
+            { skill8: [this.getRandomInt(), this.getRandomInt()] },
+          ]
+
+          ,
         },
         () => {
           console.log(this.state.data);
-          this.setState({ score: this.getRandomInt() }, () => {
-            console.log(this.state.score);
-          });
+          // this.setState({ score: this.getRandomInt() }, () => {
+          //   console.log(this.state.score);
+          // });
         }
       );
     });
@@ -113,7 +121,21 @@ export default class AnalyticsResumeAnalysisContainer extends Component {
           console.log("Title: " + this.state.selectedTitle.label);
 
           let title = this.state.selectedTitle.value;
+          let text = this.state.resumeText.replace(" ", "_");
+          console.log(title)
           // make backend call connection here TODODOOOOO
+          this.getScore(title, text);
+          console.log(title)
+          this.getSkills(title, this.state.resumeText);
+          // this.getSkillsResume(this.state.resumeText);
+          console.log(this.state.skills_title);
+          console.log(this.state.skills_resume);
+
+          // var temp = this.state.skills_resume.length < this.state.skills_title.length ? this.state.skills_resume : this.state.skills_title;
+          // for (var i=0; i<Math.min(8, temp.length); i++) {
+
+          // }
+
           this.goToAnalyticsPage();
         } else {
           alert("Please copy and paste your resume");
@@ -125,6 +147,8 @@ export default class AnalyticsResumeAnalysisContainer extends Component {
       if (this.state.description !== null && this.state.description !== "") {
         if (this.state.resumeEntered) {
           console.log("Description: " + this.state.description);
+          this.getScore();
+          this.getSkillsDesc(this.state.description, this.state.resumeText);
 
           this.goToAnalyticsPage();
           document.getElementById("resume-input").value = "";
@@ -137,6 +161,87 @@ export default class AnalyticsResumeAnalysisContainer extends Component {
     }
     return;
   };
+
+  getScore(keyword, resume) {
+    let str = '/resume_analysis?keyword=' + keyword + '&resume=' + resume;
+
+    fetch(str).then(res => res.json()).then(output => {
+      console.log(output.output);
+      this.setState({ score: output.output })
+      // this.setState({ skills: output.skills })
+    })
+  }
+
+  getSkills(keyword, resume) {
+    fetch('/skills?keyword=' + keyword).then(res => res.json()).then(output => {
+      this.setState({
+        skills_title: output.output
+      },
+        () => {
+          //   );
+          //   console.log("OUTPUT: ", output)
+          // })
+
+          fetch('/job_ad?content=' + resume).then(res => res.json()).then(output => {
+            this.setState({
+              skills_resume: output.output
+            },
+              () => {
+                let n = [];
+                let i = 1;
+                const col = ["#018588", "#FFC85C"];
+                this.state.skills_resume.forEach(x => {
+                  // this.state.skills_title.forEach(y => {
+                  for (const [key, value] of Object.entries(this.state.skills_title)) {
+                    if (x[0] === key) {
+                      // var temp = Object.create(x[0] , [x[1], value]);
+                      // n.push({str(x[0]), [x[1], value]});
+                      n.push({
+                        'skill': x[0],
+                        'frequency': value,
+                        'opacity': i,
+                        'color': col[0],
+                      });
+                      n.push({
+                        'skill': x[0],
+                        'frequency': x[1],
+                        'opacity': i,
+                        'color': col[1],
+                      });
+                      i = i - 0.1;
+
+                    }
+                  }
+
+                })
+                console.log(n);
+                this.setState({
+                  data: n
+                })
+              }
+            );
+            console.log("OUTPUT: ", output)
+          })
+        }
+      )
+    })
+  }
+
+  getSkillsDesc(keyword, param) {
+    fetch('/job_ad?content=' + keyword).then(res => res.json()).then(output => {
+      this.setState({
+        skills_desc: output.output,
+      });
+      console.log("OUTPUT: ", output)
+    })
+    fetch('/job_ad?content=' + param).then(res => res.json()).then(output => {
+      this.setState({
+        skills_resume: output.output,
+      });
+      console.log("OUTPUT: ", output)
+    })
+  }
+
 
   handleSearchChange = (selectedOption) => {
     this.setState({ selectedCompareOption: selectedOption }, () => {

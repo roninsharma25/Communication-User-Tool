@@ -90,20 +90,22 @@ export default class Analytics extends Component {
   };
 
   drawChart = () => {
-    var res = [];
-    var i = 1.0;
-    const col = ["#018588", "#FFC85C"];
-    for (const [key, v] of Object.entries(this.props.data)) {
-      i = i - 0.1;
-      for (var j = 0; j < v.length; j++) {
-        res.push({
-          skill: key,
-          frequency: v[j],
-          opacity: i,
-          color: col[j],
-        });
-      }
-    }
+    // var res = [];
+    // var i = 1.0;
+    // const col = ["#018588", "#FFC85C"];
+    // for (const [key, v] of Object.entries(this.props.data)) {
+    //   i = i - 0.1;
+    //   for (var j = 0; j < v.length; j++) {
+    //     res.push({
+    //       skill: key,
+    //       frequency: v[j],
+    //       opacity: i,
+    //       color: col[j],
+    //     });
+    //   }
+    // }
+
+    var res = this.props.data;
 
     const skillExtent = d3.map(res, (d) => d.skill);
     // console.log(skillExtent);
