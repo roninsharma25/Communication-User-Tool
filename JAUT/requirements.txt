@@ -1,0 +1,5 @@
+pandas
+numpy
+pdfminer
+pdfminer2
+gunicorn
