@@ -15,7 +15,7 @@ h1 {
 }
 
 .header {
-  padding: 30px;
+  padding: 50px;
 
 }
 
@@ -77,7 +77,7 @@ button {
 }
 
 .results {
-  margin-top: 35px;
+  margin-top: 50px;
 }
 
 .navbar {
@@ -104,7 +104,8 @@ button {
 .label {
   font-family: IBM Plex Sans;
   /* fill: #FFFFFF; */
-  fill: #027A8B;
+  /* fill: #027A8B; */
+  fill: #027a8b;
   font-size: 12px;
   font-weight: 1000;
 }
@@ -119,11 +120,12 @@ button {
   width: 500px;
   height: auto;
   /* margin-top: 50px; */
+  /* padding-left: 50px; */
 }
 
 .home-buttons {
-  background-color: #00C0C5;
-  border-color: #00C0C5 !important;
+  background-color: #00c0c5;
+  border-color: #00c0c5 !important;
   /* padding: 10px;
   padding-left: 30px;
   padding-right: 30px; */
@@ -133,13 +135,13 @@ button {
 }
 
 .home-buttons:hover {
-  border-color: #027A8B !important;
-  background-color: #027A8B !important;
+  border-color: #027a8b !important;
+  background-color: #027a8b !important;
 }
 
 .home-buttons:focus {
-  border-color: #027A8B !important;
-  background-color: #027A8B !important;
+  border-color: #027a8b !important;
+  background-color: #027a8b !important;
 }
 
 .title-container {
@@ -151,19 +153,22 @@ button {
   justify-content: center;
   flex-basis: 5;
   /* width: 175px; */
+  padding: 50px;
 }
 
 .feature-buttons {
   display: flex;
   flex-direction: column;
+  padding-left: 50px;
 }
 
 .next_steps {
   display: flex;
+padding: 50px;
   /* justify-content: center;
   width: 75%; */
-/* flex-basis: 25%; */
-/* flex: 0 0 50px; */
+  /* flex-basis: 25%; */
+  /* flex: 0 0 50px; */
 }
 
 .recommendations {
@@ -200,7 +205,15 @@ button {
 .upload-resume-text {
   font-size: 24px;
   line-height: 36px;
-  display: inline;
+  display: inline-block;
+}
+
+.job-info-text {
+  margin-right: 10px;
+}
+
+.upload-resume-text {
+  margin-bottom: 24px;
 }
 
 .resume-small-text {
@@ -229,7 +242,8 @@ button {
   text-align: left;
   box-shadow: 3px 3px 5px rgba(8, 48, 56, 0.2);
   color: #083038;
-  margin-top: 3px;
+  /* margin-top: 3px; */
+
   /* margin-left: 7%; */
   /* padding-right: 10px;  */
   /* flex-basis: 20px; */
@@ -241,6 +255,20 @@ button {
   display: inline-block;
   width: 50%;
   text-align: left;
+  box-shadow: 3px 3px 5px rgba(8, 48, 56, 0.2);
+  color: #083038;
+}
+
+.description-text-area,
+.resume-text-area {
+  border: 2px solid black;
+  border-radius: 10px;
+  box-shadow: 3px 3px 5px rgba(8, 48, 56, 0.2);
+  padding-top: 10px;
+}
+
+.resume-text-area {
+  margin-top: 10px;
 }
 
 .custom-file-upload {
@@ -289,6 +317,7 @@ textarea {
   text-decoration: none;
   border: 1px solid;
   border-color: white;
+  box-shadow: 3px 3px 5px rgba(8, 48, 56, 0.2);
 }
 
 .start-button:hover {
@@ -301,13 +330,27 @@ textarea {
   border-radius: 50%;
   width: 200px;
   height: auto;
-  margin-top: 50px;
+  /* margin-top: 50px; */
   padding: 20px;
 }
 
 .team_members {
   display: flex;
   flex-direction: column;
+  padding: 50px;
+  padding-top: 0px;
+}
+
+.score-text {
+  display: block;
+  margin: 0;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  position: relative;
+  margin-right: auto;
+  margin-left: 115%;
+  line-height: 40px;
+  color: #083038;
 }
 
 .row {
@@ -315,8 +358,161 @@ textarea {
   flex-direction: row;
 }
 
+.row2 {
+  width: 75%;
+}
+
 .member {
-  display: inline-block;
+  /* display: flex;
+  flex-direction: row; */
+  /* width: 25%;
+  float: left;
+  padding: 20px; */
+  flex: 1;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+.bio {  
+  font-family: 'PoppinsLight', sans-serif;
+  color: #083038;
+}
+
+.about_header {
+  padding: 50px;
+}
+
+.home_text {
+  padding-left: 300px;
+  padding-right: 300px;
+  padding-bottom: 50px;
+  text-align: left;
+  font-family: 'PoppinsThin', sans-serif;
+  color: #083038;
+}
+
+.name {
+  margin-bottom: 0px;
+  font-family: Poppins;
+  color: #083038;
+}
+
+.info {
+  font-size: 12px;
+  font-family: 'PoppinsLight', sans-serif;
+  color: #083038;
+  line-height: 16px;
+  /* display: inline-block;
   overflow: hidden;
-  white-space: nowrap;
+  white-space: nowrap; */
+}
+
+/* ================ Analytics Page ===================== */
+.readiness-score-analytics {
+  float: left;
+  width: 45%;
+  justify-content: space-between;
+}
+
+.communication-skills-chart-container {
+  float: right;
+  width: 55%;
+}
+
+.readiness-score-title,
+.important-communication-title {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  color: #083038;
+}
+
+.back-button {
+  display: inline-block;
+  background-color: #f3feff;
+  align-items: center;
+  height: 60px;
+  width: 220px;
+  border: none;
+  line-height: 58px;
+  text-align: center;
+  display: block;
+  margin-top: 35%;
+  margin-right: 20%;
+  color: #083038;
+  font: 600 28px;
+  text-decoration: none;
+}
+
+.back-button-text {
+  text-decoration: none;
+  color: #083038;
+}
+
+.back-arrow-image {
+  width: 25px;
+  height: auto;
+  padding-right: 5px;
+  padding-bottom: 1px;
+
+  color: #083038;
+}
+
+.back-button:hover {
+  color: #083038;
+  border-color: #083038;
+}
+
+/* ============== Readiness Score ==================== */
+.score-and-list-container {
+  justify-content: space-around;
+  align-items: center;
+}
+
+.score-counter-container {
+  display: inline;
+  justify-content: space-around;
+}
+
+.dial {
+  margin-left: auto;
+  margin-right: auto;
+  position: absolute;
+}
+
+#my-label {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.score-containers {
+  display: block;
+  flex: left;
+  width: 60%;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.counter-container {
+  flex: right;
+  width: 40%;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.score-display {
+  display: block;
+  border: 2px solid black;
+  border-radius: 5px;
+  color: black;
+  padding: 10px 10px 10px 10px;
+  box-shadow: 3px 3px 5px rgba(8, 48, 56, 0.2);
+  margin-top: 10px;
+  width: 150px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.score-display-container {
 }
