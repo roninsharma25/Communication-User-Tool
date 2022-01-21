@@ -1,8 +1,0 @@
-
-/score?keyword=val
-{score: 0.5, skills: [('skill1', #), ('skill2', #))]}
-
-/skills?keyword=val
-{"skill1": #, "skill2": #}
-
-

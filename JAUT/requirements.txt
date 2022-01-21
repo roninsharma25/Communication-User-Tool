@@ -1,5 +1,0 @@
-pandas
-numpy
-pdfminer
-pdfminer2
-gunicorn==20.1.0
