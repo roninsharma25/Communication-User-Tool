@@ -5,6 +5,9 @@ from api import jobAdParser
 
 app = Flask(__name__, static_url_path = '', static_folder = 'front-end/build')
 
+@app.route("/", defaults={'path':''})
+def serve(path):
+    return send_from_directory(app.static_folder, 'index.html')
 
 @app.route('/score')  # /score?keyword=val&score=0
 def getScore():
