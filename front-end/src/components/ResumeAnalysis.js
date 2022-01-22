@@ -41,6 +41,7 @@ export default class ResumeAnalysis extends Component {
       description: null,
       selectedTitle: null,
       selectedFile: null,
+      proxy: 'https://jaut.herokuapp.com'
     };
 
     this.fileHandler = this.fileHandler.bind(this);
@@ -78,7 +79,7 @@ export default class ResumeAnalysis extends Component {
           let str = `/resume_analysis?keyword=${this.state.selectedTitle.value}&resume=${resumeStem}`;
           console.log("STR: ", str);
 
-          fetch(str)
+          fetch(this.state.proxy + str)
             .then((res) => res.json())
             .then((output) => {
               console.log("RESUME OUTPUT:", output);
@@ -100,7 +101,7 @@ export default class ResumeAnalysis extends Component {
           let str = `/job_ad?content=${this.state.description}`;
           console.log("STR: ", str);
           
-          fetch(str)
+          fetch(this.state.proxy + str)
             .then((res) => res.json())
             .then((output) => {
               console.log("JOB AD OUTPUT:", output);

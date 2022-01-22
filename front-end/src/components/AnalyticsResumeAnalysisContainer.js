@@ -58,7 +58,9 @@ export default class AnalyticsResumeAnalysisContainer extends Component {
       getColor: true,
       skills_title: null,
       skills_desc: null,
-      skills_resume: null
+      skills_resume: null,
+
+      proxy: 'https://jaut.herokuapp.com'
     };
 
     this.handleSearchChange = this.handleSearchChange.bind(this);
@@ -165,7 +167,7 @@ export default class AnalyticsResumeAnalysisContainer extends Component {
   getScore(keyword, resume) {
     let str = '/resume_analysis?keyword=' + keyword + '&resume=' + resume;
 
-    fetch(str).then(res => res.json()).then(output => {
+    fetch(this.state.proxy + str).then(res => res.json()).then(output => {
       console.log(output.output);
       this.setState({ score: output.output })
       // this.setState({ skills: output.skills })
@@ -173,7 +175,7 @@ export default class AnalyticsResumeAnalysisContainer extends Component {
   }
 
   getSkills(keyword, resume) {
-    fetch('/skills?keyword=' + keyword).then(res => res.json()).then(output => {
+    fetch(this.state.proxy + '/skills?keyword=' + keyword).then(res => res.json()).then(output => {
       this.setState({
         skills_title: output.output
       },
@@ -182,7 +184,7 @@ export default class AnalyticsResumeAnalysisContainer extends Component {
           //   console.log("OUTPUT: ", output)
           // })
 
-          fetch('/job_ad?content=' + resume).then(res => res.json()).then(output => {
+          fetch(this.state.proxy + '/job_ad?content=' + resume).then(res => res.json()).then(output => {
             this.setState({
               skills_resume: output.output
             },
@@ -228,13 +230,13 @@ export default class AnalyticsResumeAnalysisContainer extends Component {
   }
 
   getSkillsDesc(keyword, param) {
-    fetch('/job_ad?content=' + keyword).then(res => res.json()).then(output => {
+    fetch(this.state.proxy + '/job_ad?content=' + keyword).then(res => res.json()).then(output => {
       this.setState({
         skills_desc: output.output,
       });
       console.log("OUTPUT: ", output)
     })
-    fetch('/job_ad?content=' + param).then(res => res.json()).then(output => {
+    fetch(this.state.proxy + '/job_ad?content=' + param).then(res => res.json()).then(output => {
       this.setState({
         skills_resume: output.output,
       });
