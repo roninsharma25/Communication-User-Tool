@@ -1,9 +1,9 @@
 from flask import *
-import main
-import datasetParser
-import jobAdParser
+from api import main
+from api import datasetParser
+from api import jobAdParser
 
-app = Flask(__name__)
+app = Flask(__name__, static_url_path = '', static_folder = 'front-end/build')
 
 
 @app.route('/score')  # /score?keyword=val&score=0

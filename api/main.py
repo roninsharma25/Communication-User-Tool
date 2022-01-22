@@ -2,14 +2,11 @@
 This module contains all functions invoked by the backend API.
 """
 
-import datasetParser
-# import resumeParser
-import jobAdParser
-
+from api import datasetParser
+from api import jobAdParser
 
 def calculateScore(keyword, scoreMetric, resumeFile, factor=0.25):
     datasetResults = datasetParser.parseDataset(keyword)
-    # resumeResults = resumeParser.parseResume(resumeFile)
     resumeResults = jobAdParser.parseJobAd(resumeFile)
 
     print(datasetResults)
